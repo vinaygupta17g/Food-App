@@ -1,6 +1,8 @@
 package com.vinay.foodorder.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,17 +44,23 @@ public class OrderSummaryAdapter extends RecyclerView.Adapter<OrderSummaryAdapte
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                DatabaseHandler helper=new DatabaseHandler(context);
-                if(helper.deleteorder(detail.getId())>0)
-                {
-                    Toast.makeText(context, "Item deleted successfully", Toast.LENGTH_SHORT).show();
-                    return true;
+                new AlertDialog.Builder(context).setTitle("Delete").setIcon(R.drawable.baseline_delete_24).setMessage("Are you sure you want to delete?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DatabaseHandler helper =new DatabaseHandler(view.getContext());
+                        if(helper.deleteorder(detail.getId())<=0)
+                            Toast.makeText(context, "Not deleted",Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(context, "Order deleted successfully", Toast.LENGTH_SHORT).show();
+                    }
+                }).setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.dismiss();
+                    }
+                }).show();
 
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
         });
     }
