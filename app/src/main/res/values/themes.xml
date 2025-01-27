@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FoodOrder" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">#007BF6</item>
+    </style>
+
+    <style name="Theme.FoodOrder" parent="Base.Theme.FoodOrder">
+        <item name="colorPrimaryVariant">@color/black</item>
+    </style>
+</resources>
