@@ -22,21 +22,23 @@
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/food1"/>
+                app:srcCompat="@drawable/food1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp">
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/itemname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Burger"
                     android:textSize="25dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -45,10 +47,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="₹"
                         android:textColor="#FF0000"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:text="₹" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/itemprice"
@@ -59,12 +61,13 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
                 <TextView
+                    android:id="@+id/itemdescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:id="@+id/itemdescription"
                     android:text="Nice Food "
+                    android:textSize="20dp"
                     android:textStyle="bold"
 
                     />
