@@ -5,31 +5,24 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.annotation.Nullable;
-
 import com.vinay.foodorder.Models.OrderDetail;
-
 import java.util.ArrayList;
-
 public class DatabaseHandler extends SQLiteOpenHelper {
     final static String DB_NAME="foodorder.db";
     final static int DB_VERSION=1;
     public DatabaseHandler(@Nullable Context context) {
         super(context, DB_NAME,null,DB_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table foodorder"+"(id INTEGER PRIMARY KEY autoincrement,"+"foodimage int,"+"foodname text,"+"foodprice int,"+"fooddescription text,"+"name text,"+"mobile text,"+"quantity int)");
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE if exists foodorder");
         onCreate(sqLiteDatabase);
     }
-
     public boolean orderinsert(int foodimage,String foodname,int foodprice,String fooddescription,String name,String mobile,int quantity)
     {
         SQLiteDatabase database=getReadableDatabase();
@@ -47,7 +40,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         else
             return true;
     }
-
     public ArrayList<OrderDetail> getAllOrders()
     {
         SQLiteDatabase database=getWritableDatabase();
@@ -73,7 +65,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         database.close();
         return detail;
     }
-
     public int deleteorder(int id)
     {
         SQLiteDatabase database=getWritableDatabase();
